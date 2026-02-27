@@ -1,0 +1,18 @@
+<%- include('layout', { body: `
+<h2>Question ${questionNumber} of ${total}</h2>
+<p>${question.question}</p>
+
+<form method="POST" action="/quiz">
+  ${question.options
+    .map(
+      (opt, index) => `
+    <div class="option">
+      <input type="radio" name="option" value="${index}" required />
+      <label>${opt}</label>
+    </div>
+  `
+    )
+    .join("")}
+  <button type="submit">Next</button>
+</form>
+` }) %>

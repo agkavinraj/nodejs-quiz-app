@@ -1,0 +1,16 @@
+<%- include('layout', { body: `
+<h1>🎉 Quiz Completed!</h1>
+<p>Your Score: ${score} / ${total}</p>
+
+${
+  score === total
+    ? "<p class='perfect'>🔥 Perfect Score!</p>"
+    : score >= total / 2
+    ? "<p class='good'>👍 Good Job!</p>"
+    : "<p class='bad'>📚 Keep Practicing!</p>"
+}
+
+<form method="POST" action="/restart">
+  <button>Restart Quiz</button>
+</form>
+` }) %>
