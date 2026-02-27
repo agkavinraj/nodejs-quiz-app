@@ -13,5 +13,5 @@ Simple quiz application built with:
 - Restart option
 
 ## Run Locally
-npm install
-node server.js
+ - npm install
+ - node server.js
