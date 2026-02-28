@@ -4,7 +4,7 @@ A simple Node.js Quiz Application containerized using Docker (multi-stage build)
 
 ---
 
-## 📌 Technologies Used
+##  Technologies Used
 
 - Node.js
 - Docker (Multi-stage build)
@@ -16,7 +16,7 @@ A simple Node.js Quiz Application containerized using Docker (multi-stage build)
 
 ---
 
-## 🐳 Docker Implementation
+##  Docker Implementation
 
 This project uses a **multi-stage Docker build** to optimize image size and improve security.
 
@@ -40,7 +40,7 @@ This project uses a **multi-stage Docker build** to optimize image size and impr
 
 ---
 
-## ▶️ Run with Docker
+##  Run with Docker
 
 ### Build the Docker Image
 
@@ -64,7 +64,7 @@ http://localhost:3000
 
 ---
 
-## ⚙️ Jenkins CI/CD Pipeline
+##  Jenkins CI/CD Pipeline
 
 This project uses a **Jenkins Declarative Pipeline** with a **Shared Library (`devops-lib`)**.
 
@@ -96,7 +96,7 @@ This project uses a **Jenkins Declarative Pipeline** with a **Shared Library (`d
 
 ---
 
-## 📧 Email Notifications
+##  Email Notifications
 
 Using Jenkins `emailext` plugin:
 
@@ -110,7 +110,7 @@ Using Jenkins `emailext` plugin:
 
 ---
 
-## 🔄 CI/CD Workflow
+##  CI/CD Workflow
 
 1. Checkout source code from GitHub
 2. Build Docker image
