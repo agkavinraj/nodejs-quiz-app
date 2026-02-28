@@ -4,12 +4,11 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "agkavinraj24/nodejs-quiz-app"
+        IMAGE_NAME = 'agkavinraj24/nodejs-quiz-app'
         IMAGE_TAG  = "${BUILD_NUMBER}"
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 gitCheckOut(
@@ -40,10 +39,41 @@ pipeline {
 
     post {
         success {
-            echo "Image pushed to Docker Hub successfully."
+            emailext(
+                to: 'agkavinraj27@gmail.com',
+                subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                    Build Status : SUCCESS
+
+                    Job Name     : ${env.JOB_NAME}
+                    Build Number : ${env.BUILD_NUMBER}
+                    Build URL    : ${env.BUILD_URL}
+
+                    Docker Image : ${IMAGE_NAME}:${IMAGE_TAG}
+
+                    Regards,
+                    Jenkins
+                    """
+                )
         }
+
         failure {
-            echo "Pipeline failed."
+            emailext(
+                to: 'agkavinraj27@gmail.com',
+                subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+                        Build Status : FAILURE
+
+                        Job Name     : ${env.JOB_NAME}
+                        Build Number : ${env.BUILD_NUMBER}
+                        Build URL    : ${env.BUILD_URL}
+
+                        Please check console logs.
+
+                        Regards,
+                        Jenkins
+                        """
+                )
         }
     }
 }
